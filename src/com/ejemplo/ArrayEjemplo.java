@@ -52,7 +52,7 @@ public class ArrayEjemplo {
 
     private Scanner teclado = new Scanner(System.in);
     private double[][] temperaturas = new double[2][7]; // Primer [] es para las filas y el [] columna/s
-    private String[] dias = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
+    private String[] dias = {"  Lunes  ", "  Martes ", "Miercoles", "  Jueves ", " Viernes ", "  Sabado ", "  Domingo"};
     private int fila = 0, columna = 0;
     private double numero, numMax = 0;
 
@@ -106,11 +106,13 @@ public class ArrayEjemplo {
     }
 
     public void getListar() {
-        // 0 temperatura minima temperatura[0][0]
-        // 1 temperatura maxima temperatura[1][0]
+        // 0 temperatura minima temperatura[0][++]
+        // 1 temperatura maxima temperatura[1][++]
         System.out.println();
         boolean satoDeLinea = true;
         if (temperaturas[0][0] > 0) {
+
+            /* // Forma 1 listar
             for (int i = 0; i < temperaturas.length; i++) {
                 for (int s = 0; s < temperaturas[i].length; s++) {
                     if (i == 0) {
@@ -123,6 +125,13 @@ public class ArrayEjemplo {
                         System.out.println("Dia " + dias[s] + "  Temperatura maxima " + temperaturas[i][s]);
                     }
                 }
+            }
+             */
+
+            // Forma 2 listar
+            System.out.println("   Dia    Temperatura minima  Temperatura maxima");
+            for (int i=0; i<temperaturas[0].length; i++){
+                System.out.println(dias[i] + "        " + temperaturas[0][i] + "                 " + temperaturas[1][i]);
             }
         } else {
             System.out.println("\n**** Error, no ha ingresado las temperaturas ****\n");
